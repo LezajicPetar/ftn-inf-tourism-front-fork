@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE TOUR</title>
+    <link rel="stylesheet" href="../../../../dist/tours/pages/createEditTour/createEditTour.css">
+    <script type="module" src="../../../../dist/tours/pages/createEditTour/createEditTour.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item" id="home"><a href="../../../index.html">Home</a></li>
+            <li class="nav-item" id="allTours"><a href="../toursPreview/toursPreview.html">All tours</a></li>
+            <li class="nav-item" id="logout"><a href="../../../index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <form id="form-card">
+        <h2>Create tour</h2>
+
+        <div class="form-group">
+            <label for="name">Tour name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="datetime-local" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="maxGuests">Max. guests</label>
+            <input type="number" id="maxGuests" name="maxGuests" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="6" required></textarea>
+        </div>
+
+        <button type="button" class="submit-btn">SUBMIT</button>
+    </form>
+
+</body>
+
+</html>

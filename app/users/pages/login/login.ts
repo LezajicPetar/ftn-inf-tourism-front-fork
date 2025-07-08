@@ -1,4 +1,4 @@
-import { UserService } from "../../service/user.service.js";
+import { UserService } from "../../services/user.service.js";
 
 const userService = new UserService();
 const loginLink = document.querySelector('#login') as HTMLElement;
@@ -17,7 +17,7 @@ function setUserLoginState(isLoggedIn: boolean) {
 
 function handleLogin(event: Event) {
     event.preventDefault();
-    
+
     const form = document.querySelector("form") as HTMLFormElement;
     const formData = new FormData(form);
     const username = formData.get("username") as string;
@@ -27,16 +27,23 @@ function handleLogin(event: Event) {
         .then((user) => {
             localStorage.setItem('username', user.username);
             localStorage.setItem('role', user.role);
+            localStorage.setItem('userId', user.id.toString())
             setUserLoginState(true);
+
+            if (user.role === 'vodic') {
+                window.location.href = '../../../tours/pages/toursPreview/toursPreview.html';
+            }
         })
         .catch((error) => {
             console.error('Login failed', error.message);
         });
+
 }
 
 function handleLogout() {
     localStorage.removeItem('username');
     localStorage.removeItem('role');
+    localStorage.removeItem('userId');
     setUserLoginState(false);
 }
 

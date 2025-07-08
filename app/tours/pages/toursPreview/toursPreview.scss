@@ -1,0 +1,89 @@
+@import "../../../styles/global.scss";
+
+#tour-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.div-card {
+  background-color: #fff;
+  border: 1px solid $primary-color;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: $accent-color;
+  }
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    line-height: 1.4;
+    height: 150px;
+    overflow: auto;
+  }
+
+  .maxGuests,
+  .dateTime,
+  .status {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  .status-published {
+    font-weight: bold;
+    color: green;
+  }
+
+  .status-inPreparation {
+    font-weight: bold;
+    color: $accent-color;
+  }
+
+  .editBtn,
+  .deleteBtn {
+    padding: 8px 30px;
+    min-width: 140px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 0.9rem;
+  }
+
+  .editBtn {
+    background-color: $button-color;
+
+    &:hover {
+      background-color: darken($button-color, 10%);
+    }
+  }
+
+  .deleteBtn {
+    background-color: $warn-color;
+
+    &:hover {
+      background-color: darken($warn-color, 10%);
+    }
+  }
+}

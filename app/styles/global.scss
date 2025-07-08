@@ -9,25 +9,6 @@ body {
     padding: 0;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 200px;
-    margin: 20px auto;
-}
-
-label {
-    font-size: 14px;
-    color: $primary-color;
-}
-
-input {
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
 button {
     padding: 10px 15px;
     background-color: $button-color;
