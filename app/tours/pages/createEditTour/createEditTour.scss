@@ -27,6 +27,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.7rem;
+            position: relative;
 
             h2 {
                 color: $primary-color;
@@ -67,7 +68,21 @@
                 }
             }
 
-            #nextBtn {
+            #addKeyPointsTooltip {
+                position: absolute;
+                display: none;
+                background-color: black;
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+                max-width: 400px;
+                min-width: 300px;
+                left: 80%;
+                top: 90%;
+                transform: translateY(-10px)
+            }
+
+            #addKeyPointsBtn {
                 align-self: center;
                 padding: 0.75rem 2rem;
                 background-color: $button-color;
@@ -84,6 +99,9 @@
                 &:hover {
                     background-color: darken($button-color, 10%);
                 }
+                &:hover+#addKeyPointsTooltip {
+                    display: block;
+                }
             }
 
         }
@@ -96,7 +114,7 @@
                 justify-content: space-between;
                 position: relative;
 
-                #publishBtnTooltip{
+                #publishBtnTooltip {
                     position: absolute;
                     display: none;
                     background-color: black;

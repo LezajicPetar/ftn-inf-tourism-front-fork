@@ -37,8 +37,8 @@ function fillOutForm(tour: Tour): void {
 
 function bindButtons() {
 
-    const nextBtn = document.getElementById('nextBtn') as HTMLButtonElement;
-    nextBtn.addEventListener('click', saveTourInPreparation)
+    const addKeyPointsBtn = document.getElementById('addKeyPointsBtn') as HTMLButtonElement;
+    addKeyPointsBtn.addEventListener('click', saveTourInPreparation)
 
     const logoutLink = document.querySelector("#logout") as HTMLElement;
     logoutLink.addEventListener('click', handleLogout)
@@ -183,11 +183,7 @@ async function validateForm(tourId: number) {
 
     const tour: Tour = await tourService.getById(tourId);
 
-    console.log('TOURID:', tourId, textArea.value.length, tour.keyPoints.length);
     publishBtn.disabled = !(textArea.value.length >= 3 && tour.keyPoints.length >= 2);
 }
-
-
-
 
 document.addEventListener('DOMContentLoaded', initializePage)
