@@ -53,7 +53,7 @@ export class TourService {
             })
 
     }
-    getAll(guideId: Number): Promise<Tour[]> {
+    getByGuide(guideId: Number): Promise<Tour[]> {
         return fetch(`${this.apiUrl}?guideId=${guideId}`)
             .then(response => {
                 if (!response.ok) {

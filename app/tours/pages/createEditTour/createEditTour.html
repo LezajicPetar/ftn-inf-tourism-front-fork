@@ -18,32 +18,91 @@
         </ul>
     </nav>
 
-    <form id="form-card">
-        <h2>Create tour</h2>
-
-        <div class="form-group">
-            <label for="name">Tour name</label>
-            <input type="text" id="name" name="name" required>
+    <div id="container">
+        <div id="progress-container">
+            <p class="bar" id="bar1">1</p>
+            <p class="bar" id="bar2">2</p>
         </div>
 
-        <div class="form-group">
-            <label for="date">Date</label>
-            <input type="datetime-local" id="date" name="date" required>
-        </div>
+        <form id="form-card">
+            <div id="step1">
+                <h2>Create tour</h2>
+                <div class="form-group">
+                    <label for="name">Tour name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-        <div class="form-group">
-            <label for="maxGuests">Max. guests</label>
-            <input type="number" id="maxGuests" name="maxGuests" required>
-        </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="datetime-local" id="date" name="date" required>
+                </div>
 
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description" rows="6" required></textarea>
-        </div>
+                <div class="form-group">
+                    <label for="maxGuests">Max. guests</label>
+                    <input type="number" id="maxGuests" name="maxGuests" required>
+                </div>
 
-        <button type="button" class="submit-btn">SUBMIT</button>
-    </form>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="6" required></textarea>
+                </div>
 
+                <button type="button" id="addKeyPointsBtn">ADD KEY POINTS</button>
+                <span id="addKeyPointsTooltip">Klikom na dugme tura ce biti sacuvana u pripremi i mozete nastaviti dodavanje tacaka bilo kad</span>
+            </div>
+
+            <div id="step2">
+                <h2>Add key points</h2>
+
+                <div id="tourDataContainer">
+                    <h3 id="namePreview"></h3>
+                    <h3 id="datePreview"></h3>
+                    <h3 id="maxGuestsPreview"></h3>
+                    <h3>Key points:</h3>
+                    <div id="keyPoints"></div>
+                </div>
+
+                <div id="keyPointFormContainer">
+                    <div class="form-group">
+                        <label for="order">Order:</label>
+                        <input type="number" id="order" name="order" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keyPointName">Key point name:</label>
+                        <input type="text" id="keyPointName" name="keyPointName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL:</label>
+                        <input type="string" id="imageUrl" name="imageUrl" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="latitude">Latitude:</label>
+                        <input type="number" id="latitude" name="latitude" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude">Longitude:</label>
+                        <input type="number" id="longitude" name="longitude" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="keyPointDescription">Description:</label>
+                        <input type="string" id="keyPointDescription" name="keyPointDescription" required>
+                    </div>
+
+                    <button type="button" id="addBtn">Add</button>
+                </div>
+
+                <div id="buttonContainer">
+                    <button type="button" id="backBtn">Back</button>
+                    <button type="button" id="publishBtn" disabled>Publish</button>
+                    <span id="publishBtnTooltip">Da bi tura bila objavljena potrebno je da ima minimum 2 kljucne tacke i opis duzi od 250 karaktera.</span>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
