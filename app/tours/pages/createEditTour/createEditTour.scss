@@ -1,69 +1,201 @@
 @import "../../../styles/global.scss";
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-#form-card {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
+#container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
 
-    h2 {
-        color: $primary-color;
-        margin-bottom: 0.5rem;
-        text-align: center;
-    }
-
-    .form-group {
+    #form-card {
+        max-width: 600px;
+        min-width: 500px;
+        margin: 0.5rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1.5rem;
 
-        label {
-            font-weight: bold;
-            color: #333;
+        #step1 {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+
+            h2 {
+                color: $primary-color;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
+
+                label {
+                    font-weight: bold;
+                    color: #333;
+                }
+
+                input,
+                textarea {
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    transition: border-color 0.2s ease;
+
+                    &:focus {
+                        border-color: $primary-color;
+                    }
+
+                    &:hover {
+                        background-color: rgba(108, 109, 109, 0.11);
+                    }
+                }
+
+                textarea {
+                    resize: none;
+                    min-height: 120px;
+                }
+            }
+
+            #nextBtn {
+                align-self: center;
+                padding: 0.75rem 2rem;
+                background-color: $button-color;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                width: 100%;
+                max-width: 200px;
+
+                &:hover {
+                    background-color: darken($button-color, 10%);
+                }
+            }
+
         }
 
-        input,
-        textarea {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s ease;
+        #step2 {
+            display: none;
 
-            &:focus {
-                border-color: $primary-color;
-            }
-            &:hover{
-                background-color: rgba(108, 109, 109, 0.11);
-            }
-        }
+            #buttonContainer {
+                display: flex;
+                justify-content: space-between;
+                position: relative;
 
-        textarea {
-            resize: none;
-            min-height: 120px;
+                #publishBtnTooltip{
+                    position: absolute;
+                    display: none;
+                    background-color: black;
+                    color: white;
+                    padding: 5px;
+                    border-radius: 5px;
+                    max-width: 400px;
+                    min-width: 300px;
+                    left: 110%;
+                    transform: translateY(-10px)
+                }
+
+                #publishBtn:disabled {
+                    background-color: grey;
+
+                    &:hover {
+                        background-color: darken(grey, 10%);
+                    }
+                }
+
+                #publishBtn:disabled:hover+#publishBtnTooltip {
+                    display: block;
+                }
+            }
+
+            #tourDataContainer {
+                gap: 5px;
+                display: flex;
+                flex-direction: column;
+
+                .keyPointButtonPair {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+            }
+
+            #keyPointFormContainer {
+                display: flex;
+                flex-direction: column;
+                margin: 40px 0px;
+                gap: 15px;
+            }
+
+            h2 {
+                color: $primary-color;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
+
+                label {
+                    font-weight: bold;
+                    color: #333;
+                }
+
+                input,
+                textarea {
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    transition: border-color 0.2s ease;
+
+                    &:focus {
+                        border-color: $primary-color;
+                    }
+
+                    &:hover {
+                        background-color: rgba(108, 109, 109, 0.11);
+                    }
+                }
+            }
+
         }
     }
 
-    .submit-btn {
-        align-self: center;
-        padding: 0.75rem 2rem;
-        background-color: $button-color;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
+    #progress-container {
+        margin: 20px 0px 5px 0px;
+        display: flex;
+        gap: 8px;
 
-        &:hover {
-            background-color: darken($button-color, 10%);
+        .bar {
+            text-align: center;
+            width: 80px;
+            height: 20px;
+            background-color: $accent-color;
+            border-radius: 6px;
+            border: 3px solid $accent-color;
+            font-weight: bold;
+        }
+
+        #bar2 {
+            background-color: white;
         }
     }
 }

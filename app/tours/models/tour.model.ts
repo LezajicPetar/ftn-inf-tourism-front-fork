@@ -1,3 +1,4 @@
+import { KeyPoint } from "./keyPoints.model";
 
 export interface Tour{
     id?: number;
@@ -7,4 +8,5 @@ export interface Tour{
     maxGuests: number;
     guideId: number;
     status?: string;
+    keyPoints?: KeyPoint[];
 }

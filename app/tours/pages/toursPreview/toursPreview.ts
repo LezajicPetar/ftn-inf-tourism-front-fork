@@ -19,7 +19,7 @@ function loadAllTours() {
 
     const userId: number = parseInt(localStorage.getItem("userId"));
 
-    tourService.getAll(userId)
+    tourService.getByGuide(userId)
         .then(allTours => {
             allTours.forEach(tour => {
                 tourContainer.appendChild(createTourCard(tour));
@@ -83,6 +83,7 @@ function createTourCard(tour: Tour): HTMLElement {
     descriptionSpan.textContent = "Opis:";
 
     div.append(maxGuests, name, descriptionSpan, description, dateTime, status, editBtn, deleteBtn);
+
 
     return div;
 }
